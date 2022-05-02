@@ -30,7 +30,7 @@
         .btnOverlay{
             width: 100%;
             height: 815px;
-            position: absolute;
+            position: relative;
             z-index: 1000;
            
         cursor:pointer;
@@ -212,18 +212,18 @@
         <div class="span9" style="height:100%">
             <div id="map-wrapper">
                 <div id="map"></div>
-                <div id="overlay">
+                <!-- <div id="overlay">
                     <input type="button" id="BtnOverlay" value="Klik på kategorierne herunder for at gå på opdagelse i projekter" onclick="hideButton(this)" class="btnOverlay span3" />
-                </div>
+                </div> -->
                 <div id="button-wrapper" >
                     <input type="button" id="Btn1" value="Stenrev" onclick="onoff()" class="btnStyle1 span3" />
-                    <input type="button" id="Btn2" value="Eco Engineering" onclick="onoff1()" class="btnStyle6 span3" />
+                    <input type="button" id="Btn2" value="Eco Engineering" onclick="onoff()" class="btnStyle6 span3" />
                     <input type="button" id="Btn3" value="Ålegræs" onclick="onoff()" class="btnStyle2 span3" /> 
                     <input type="button" id="Btn4" value="Kystzonen" onclick="onoff()" class="btnStyle3 span3" />
                     <input type="button" id="Btn5" value="Sandcapping" onclick="onoff()" class="btnStyle4 span3" />
                     <input type="button" id="Btn6" value="Muslingerev" onclick="onoff()" class="btnStyle5 span3" />    
-                    <input type="button" id="Btn7" value="Vanddybde" onclick="onoff()" class="btnStyle7 span3" />                 
-             
+                    <!-- <input type="button" id="Btn7" value="Vanddybde" onclick="onoff1()" class="btnStyle7 span3" />                 
+              -->
                 </div> 
             </div>
                <span id="studentsCount" class="lblStyle span3"> Se projekter ved at trykke på en af overstående emner </span>
@@ -248,7 +248,7 @@
         <script src="data/Sandcapping_4.js"></script>
         <script src="data/Muslingerev_5.js"></script>
         <script src="data/Kystzonen_6.js"></script>
-   <!-- Load Leaflet from CDN -->
+   <!-- Load Esri Leaflet from CDN -->
    <script src="https://unpkg.com/esri-leaflet@3.0.3/dist/esri-leaflet.js"
    integrity="sha512-kuYkbOFCV/SsxrpmaCRMEFmqU08n6vc+TfAVlIKjR1BPVgt75pmtU9nbQll+4M9PN2tmZSAgD1kGUCKL88CscA=="
    crossorigin=""></script>
@@ -267,7 +267,7 @@
         function highlightFeature(e) {
             highlightLayer = e.target;
 
-            if (e.target.feature.geometry.type === 'LineString') {
+/*             if (e.target.feature.geometry.type === 'LineString') {
               highlightLayer.setStyle({
                 color: '#ffff00',
               });
@@ -276,7 +276,7 @@
                 fillColor: '#ffff00',
                 fillOpacity: 1
               });
-            }
+            } */
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
@@ -344,7 +344,7 @@ var layer_Skrmkortgr_0 = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/
                 url: "https://gis.aalborg.dk/akbms/rest/services/Limf/Limf_Dybde/MapServer",
             
             }).addTo(map);
-            map.addLayer(esri);
+          /*   map.addLayer(esri); */
 
      
             var popupContent = '<table>\
@@ -781,8 +781,6 @@ var layer_Skrmkortgr_0 = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/
             '<img src="legend/stenrev_3.png" /> stenrev': layer_stenrev_3,
             '<img src="legend/Ukendt_NG_2.png" /> Diverse naturgenopretningsprojekter': layer_Ukendt_NG_2,
             '<img src="legend/Aalegraes_1.png" /> Ålegræs': layer_Aalegraes_1,
-
-
         }, 
         {collapsed:true,
         position: 'topright'},
@@ -898,14 +896,20 @@ map.on('click', onMapClick);
 }};;
 
 
-function onMapClick(e) {}   
+/* function onMapClick(e) {}   
 map.on('click', onMapClick);
     document.querySelector("#Btn7").onclick = function() {
     	if(map.hasLayer(esri)) {
         map.removeLayer(esri);
     } else {
     map.addLayer(esri);
-}};;
+}};; */
+
+function onoff1(y)
+{y.style.display = 'none'
+}
+
+
 </script>
 
 
