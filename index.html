@@ -414,8 +414,13 @@ var layer_Skrmkortgr_0 = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/
                 return L.marker(latlng, style_Aalegraes_1_0(feature));
             },
         });
+
+        /* ved  map.removeLayer(layer_Aalegraes_1); eller map.addLayer(layer_Aalegraes_1); styres om lagene er slået til fra starten af
+
+
+ */
         bounds_group.addLayer(layer_Aalegraes_1);
-        map.removeLayer(layer_Aalegraes_1);
+        map.addLayer(layer_Aalegraes_1);
         function pop_Ukendt_NG_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -484,7 +489,7 @@ var layer_Skrmkortgr_0 = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/
             },
         });
         bounds_group.addLayer(layer_Ukendt_NG_2);
-        map.removeLayer(layer_Ukendt_NG_2);
+        map.addLayer(layer_Ukendt_NG_2);
         function pop_stenrev_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -629,7 +634,7 @@ var layer_Skrmkortgr_0 = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/
             },
         });
         bounds_group.addLayer(layer_Sandcapping_4);
-        map.removeLayer(layer_Sandcapping_4);
+        map.addLayer(layer_Sandcapping_4);
         function pop_Muslingerev_5(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -701,7 +706,7 @@ var layer_Skrmkortgr_0 = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/
             },
         });
         bounds_group.addLayer(layer_Muslingerev_5);
-        map.removeLayer(layer_Muslingerev_5);
+        map.addLayer(layer_Muslingerev_5);
         function pop_Kystzonen_6(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -773,7 +778,7 @@ var layer_Skrmkortgr_0 = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/
             },
         });
         bounds_group.addLayer(layer_Kystzonen_6);
-        map.removeLayer(layer_Kystzonen_6);
+        map.addLayer(layer_Kystzonen_6);
 
 
         // her kan legend slåes til!
