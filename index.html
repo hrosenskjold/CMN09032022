@@ -1,3 +1,5 @@
+<!-- KOmmenter er alt+shift+a -->
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -22,7 +24,7 @@
         #map {
             width: 100%;
             height: 815px;
-            position: absolute;
+            position: relative;
             z-index: 0;
 
         }
@@ -47,8 +49,8 @@
         .btnStyle1 {
     cursor:pointer;
     background-color: #fc484800;
-    opacity: 1;
-    border-radius: 15px;
+    opacity:1;
+    border-radius: 5px;
 /*     background-image: url('markers/Stenrev.png'); 
  */    background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
@@ -56,37 +58,41 @@
     border: 1px solid #000000; 
     color: #000000;
     font-weight:bold;
-    font-size: large;
-    padding: 1%;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    width:100%;
-    margin-left: 10px;
+    font-size: x-large;
+    padding: 10%;
+    width:160%;
     border-style: dotted;
-    background-color: rgba(89, 155, 255, 0.781);
-    right: 5%;
-    top:50px;
+    background-color: rgba(245, 88, 88, 0.781);
+    position: relative;
+    top: 100px;
+    left:30%
+    
+
+ /*  her styler jeg knapper, hvis de er under billedet */
 }
 .btnStyle2 {
     cursor:pointer;
     background-color: #fc484800; 
     opacity: 0.9;
-    border-radius: 15px;
-/*     background-image: url('markers/Ålegræs1.png'); 
- */    background-size: 5cm;                      /* <------ */
-    background-repeat:   no-repeat;
+    border-radius: 5px;
+   background-size: 5cm;                      /* <------ */
+    background-repeat:   repeat;
     background-position: center center;              /* optional, center the image */
     border: 1px solid #000000; 
     color: #000000;
     font-weight: bold;
-    font-size: medium;
-    padding: 25px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    width:120px;
-    margin-left: 15px;
+    font-size: x-large;
+    padding: 35px;
+    margin-top: 20px;
+    margin-bottom: 2px;
+    margin-left: 10px;
     border-style: dotted;
-    background-color: rgba(61, 131, 211, 0.781);
+    background-color: rgba(128, 128, 128, 0.781);
+    transform: translateX(50%);
+    width: 250px;
+
+  
+
 }
 .btnStyle3 {
     cursor:pointer;
@@ -218,19 +224,28 @@
                     <input type="button" id="BtnOverlay" value="Klik på kategorierne herunder for at gå på opdagelse i projekter" onclick="hideButton(this)" class="btnOverlay span3" />
                 </div> -->
                 <div id="button-wrapper" >
-                    <div class="leaflet-right leaflet-top">
-                    <input type="button" id="Btn1" value="Stenrev" onclick="onoff()" class="leaflet-control btnStyle1 span3"/>
+<!--                     <div class="leaflet-left leaflet-top"> -->
+
+<!--                         Her er hvis kasserne skal være inde på kortet
+ --> <!--                    <input type="button" id="Btn1" value="Stenrev" onclick="onoff()" class="leaflet-control btnStyle1 span3"/>
                     <input type="button" id="Btn2" value="Eco Engineering" onclick="onoff()" class="btnStyle1 span3 leaflet-control" />
                     <input type="button" id="Btn3" value="Ålegræs" onclick="onoff()" class="btnStyle1 span3 leaflet-control" /> 
                     <input type="button" id="Btn4" value="Kystzonen" onclick="onoff()" class="btnStyle1 span3 leaflet-control" />
                     <input type="button" id="Btn5" value="Sandcapping" onclick="onoff()" class="btnStyle1 span3 leaflet-control" />
-                    <input type="button" id="Btn6" value="Muslingerev" onclick="onoff()" class="btnStyle1 span3 leaflet-control" />    
+                    <input type="button" id="Btn6" value="Muslingerev" onclick="onoff()" class="btnStyle1 span3 leaflet-control" />     -->
                     <!-- <input type="button" id="Btn7" value="Vanddybde" onclick="onoff1()" class="btnStyle7 span3" />                 
               -->
               <!-- Hvis vi vil have individuel styling af buttons, så ændres btnStyle bare til de 2, 3, 4 osv. Klasserne er lavet -->
                 </div> 
             </div>
-               <span id="studentsCount" class="lblStyle span3"> Se projekter ved at trykke på en af overstående emner </span>
+            
+               <input type="button" id="Btn1" value="Stenrev" onclick="onoff()" class="btnStyle2 span3 "/>
+               <input type="button" id="Btn2" value="Eco Engineering" onclick="onoff()" class="btnStyle2 span3 " />
+               <input type="button" id="Btn3" value="Ålegræs" onclick="onoff()" class="btnStyle2 span3 " /> 
+                    <input type="button" id="Btn4" value="Kystzonen" onclick="onoff()" class="btnStyle2 span3 " />
+                    <input type="button" id="Btn5" value="Sandcapping" onclick="onoff()" class="btnStyle2 span3 l" />
+                    <input type="button" id="Btn6" value="Muslingerev" onclick="onoff()" class="btnStyle2 span3 " />    
+
             </div>
             
 
@@ -420,7 +435,7 @@ var layer_Skrmkortgr_0 = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/
 
  */
         bounds_group.addLayer(layer_Aalegraes_1);
-        map.addLayer(layer_Aalegraes_1);
+        map.removeLayer(layer_Aalegraes_1);
         function pop_Ukendt_NG_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -489,7 +504,7 @@ var layer_Skrmkortgr_0 = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/
             },
         });
         bounds_group.addLayer(layer_Ukendt_NG_2);
-        map.addLayer(layer_Ukendt_NG_2);
+        map.removeLayer(layer_Ukendt_NG_2);
         function pop_stenrev_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -634,7 +649,7 @@ var layer_Skrmkortgr_0 = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/
             },
         });
         bounds_group.addLayer(layer_Sandcapping_4);
-        map.addLayer(layer_Sandcapping_4);
+        map.removeLayer(layer_Sandcapping_4);
         function pop_Muslingerev_5(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -706,7 +721,7 @@ var layer_Skrmkortgr_0 = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/
             },
         });
         bounds_group.addLayer(layer_Muslingerev_5);
-        map.addLayer(layer_Muslingerev_5);
+        map.removeLayer(layer_Muslingerev_5);
         function pop_Kystzonen_6(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -778,7 +793,7 @@ var layer_Skrmkortgr_0 = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/
             },
         });
         bounds_group.addLayer(layer_Kystzonen_6);
-        map.addLayer(layer_Kystzonen_6);
+        map.removeLayer(layer_Kystzonen_6);
 
 
         // her kan legend slåes til!
